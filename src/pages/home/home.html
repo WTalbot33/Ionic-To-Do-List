@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>
+      To Do List
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()"><ion-icon name="add-circle"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items" (click)="viewItem(item)">
+      <ion-item>
+        {{item.title}}
+      </ion-item>
+      <ion-item-options>
+        <button primary (click)="editItem()"><ion-icon name="clipboard"></ion-icon>Edit</button>
+        <button danger (click)="removeItem(item)"><ion-icon name='trash'></ion-icon> Delete</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
